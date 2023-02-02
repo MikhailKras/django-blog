@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>List post</title>
-</head>
-<body>
-    <h1>List of all posts</h1>
-    <p>All posts will be displayed here</p>
-</body>
-</html>
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div class="leftcolumn">
+    {% for city, company, date, content in zipped_all %}
+        <div class="card">
+          <h2>{{ city|capfirst }}</h2>
+          <h5>{{ company|capfirst }}, {{ date }}</h5>
+          <div class="fakeimg" style="height:200px;">Image</div>
+          <p>Some text..</p>
+          <p>{{ content|capfirst }}</p>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
